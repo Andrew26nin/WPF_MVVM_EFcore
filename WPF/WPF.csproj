@@ -138,6 +138,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="ViewModel\ClientVM\ClientCommand.cs" />
+    <Compile Include="ViewModel\ClientVM\ClientViewModel.cs" />
+    <Compile Include="ViewModel\OrderVM\OrderCommand.cs" />
+    <Compile Include="ViewModel\OrderVM\OrderViewModel.cs" />
+    <Compile Include="ViewModel\ViewModel.cs" />
     <Compile Include="View\ClientListView.xaml.cs">
       <DependentUpon>ClientListView.xaml</DependentUpon>
     </Compile>
@@ -216,9 +221,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="ViewModel\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\BuisnessLogic\BuisnessLogic.csproj">
       <Project>{ac3c3c7a-63b0-453a-9258-fa3330c0fc04}</Project>
