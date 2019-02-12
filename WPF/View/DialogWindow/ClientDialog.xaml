@@ -1,0 +1,87 @@
+﻿<Window x:Class="WPF.View.DialogWindow.ClientDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF.View.DialogWindow"
+        xmlns:vm="clr-namespace:WPF.ViewModel"
+        mc:Ignorable="d"
+        Title="Клиент" Height="450" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="..\..\View\ValidationStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    <StackPanel>
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="1*" />
+            </Grid.RowDefinitions>
+            <Label Margin="10" Grid.Row="0" Grid.ColumnSpan="2" FontWeight="Bold" Foreground="Blue" FontSize="15">
+                <Label.Style>
+                    <Style TargetType="{x:Type Label}">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding OperationType}">
+                                <DataTrigger.Value>
+                                    <vm:OperationType>Insert</vm:OperationType>
+                                </DataTrigger.Value>
+                                <Setter Property="Content" Value="Добавить клиента"/>
+                            </DataTrigger>
+                            <DataTrigger Binding="{Binding OperationType}">
+                                <DataTrigger.Value>
+                                    <vm:OperationType>Update</vm:OperationType>
+                                </DataTrigger.Value>
+                                <Setter Property="Content" Value="Редактировать клиента"/>
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </Label.Style>
+            </Label>
+            <Label  Name="lbltName" Content="ФИО клиента" Margin="10,10" HorizontalContentAlignment="Center" Grid.Row="1" />
+            <Label Content="Адрес" Grid.Row="2" Margin="10,10" HorizontalContentAlignment="Center"/>
+            <Label Content="VIP Клиент" Grid.Row="3" Margin="10,10" HorizontalContentAlignment="Center" />
+
+            <TextBox Name="txtName" Grid.Column="1" Text="{Binding Name, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" 
+                     Margin="10,10" HorizontalAlignment="Stretch" Grid.Row="1" Style="{StaticResource valStyle}"/>
+
+            <TextBox Name="txtAddress" Text="{Binding Address, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" 
+                     Grid.Column="1" Grid.Row="2" Margin="10,10" HorizontalAlignment="Stretch" Style="{StaticResource valStyle}"/>
+
+            <CheckBox Name="CheckBoxIsVIP" IsChecked="{Binding IsVIP}" Grid.Column="1" Grid.Row="3" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Left"/>
+
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" Margin="10" Orientation="Horizontal">
+                <Button x:Name="btnUpdate" Command="{Binding UpdateCommand}" HorizontalAlignment="Stretch" Margin="10,0" Click="btnUpdate_Click">
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding OperationType}">
+                                    <DataTrigger.Value>
+                                        <vm:OperationType>Insert</vm:OperationType>
+                                    </DataTrigger.Value>
+                                    <Setter Property="Content" Value="Добавить"/>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding OperationType}">
+                                    <DataTrigger.Value>
+                                        <vm:OperationType>Update</vm:OperationType>
+                                    </DataTrigger.Value>
+                                    <Setter Property="Content" Value="Обновить"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btnCancel" Content="Отмена" Command="{Binding CancelCommand}"  Padding="10"  Click="btnCancel_Click" />
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Window>
