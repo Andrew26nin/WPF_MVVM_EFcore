@@ -16,6 +16,13 @@
             </StackPanel>
         </DataTemplate>
 
+        <Style TargetType="GridViewColumnHeader">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style TargetType="ListViewItem">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+
     </UserControl.Resources>
     <StackPanel>
         <Button x:Name="btnAddClient" Content="Добавить клиента" Width="auto" Padding="10" HorizontalAlignment="Right" Margin="10 10 0 10" Command="{Binding ShowAddCommand}"/>
@@ -32,7 +39,7 @@
             <ListView.View>
                 <GridView >
                     <GridViewColumn Header="Имя клиента" DisplayMemberBinding="{Binding Name}"   />
-                    <GridViewColumn Header="Адрес" DisplayMemberBinding="{Binding Address}" Width="150"/>
+                    <GridViewColumn Header="Адрес" DisplayMemberBinding="{Binding Address}" Width="200"/>
                     <GridViewColumn Header="VIP" DisplayMemberBinding="{Binding IsVIP}" Width="Auto"/>
                     <GridViewColumn CellTemplate="{StaticResource RowButtons}"/>
                 </GridView>
