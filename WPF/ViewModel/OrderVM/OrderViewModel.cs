@@ -1,11 +1,6 @@
 ﻿using BuisnessLogic;
 using DataPostgres;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using WPF.Common;
 namespace WPF.ViewModel
@@ -43,19 +38,15 @@ namespace WPF.ViewModel
         }
         #endregion
 
+        internal OrderViewModel() { }
+
         internal OrderViewModel(Order order)
         {
             Number = order.Number;
             Description = order.Description;
             _originalValue = (OrderViewModel)MemberwiseClone();
         }
-        internal OrderViewModel() { }
-
-
-        
-        
-        
-
+      
         #region ICommand
 
         private ICommand _updateCommand;
@@ -99,6 +90,9 @@ namespace WPF.ViewModel
         #endregion
 
         #region Команды
+        /// <summary>
+        /// Метод добавления/редактирования записи заказа
+        /// </summary>
         private void Update()
         {
             IBuisnessLogic buisnessLogic = new BuisnessLogic.BuisnessLogic();
@@ -122,6 +116,10 @@ namespace WPF.ViewModel
                 _originalValue = (OrderViewModel)MemberwiseClone();
             }
         }
+
+        /// <summary>
+        /// Метод удаления записи заказа
+        /// </summary>
         private void Delete()
         {
             IBuisnessLogic buisnessLogic = new BuisnessLogic.BuisnessLogic();
@@ -133,6 +131,10 @@ namespace WPF.ViewModel
             });
             Clients.Orders = Clients.GetOrder();
         }
+
+        /// <summary>
+        /// Метод обновления записи заказа
+        /// </summary>
         private void Undo()
         {
             if (operationType == OperationType.Update)

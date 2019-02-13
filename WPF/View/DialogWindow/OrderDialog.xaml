@@ -29,7 +29,7 @@
             </Grid.RowDefinitions>
             <Label Content="Описание заказа" Name="lblDescription" Margin="10" Grid.Row="0"/>
 
-            <TextBox Name="txtOrderDescription" Grid.Column="1" Grid.Row="0" Margin="10" HorizontalContentAlignment="Stretch" Style="{StaticResource valStyle}" Text="{Binding Path=Description, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox TextWrapping="Wrap" Name="txtOrderDescription" Grid.Column="1" Grid.Row="0" Margin="10" HorizontalContentAlignment="Stretch" Style="{StaticResource valStyle}" Text="{Binding Path=Description, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" />
 
             <StackPanel Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="1" Margin="76,10" Orientation="Horizontal" Width="240">
                 <Button  Name="btnUpdate" Margin="10 0" HorizontalAlignment="Left" Content="Сохранить" Width="100" Command="{Binding UpdateCommand}" Click="btnUpdate_Click">

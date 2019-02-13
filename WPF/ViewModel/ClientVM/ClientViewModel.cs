@@ -171,6 +171,9 @@ namespace WPF.ViewModel
             dialog.ShowDialog();
         }
 
+        /// <summary>
+        /// Метод добавления/редактирования записи клиента
+        /// </summary>
         private void Update()
         {
             IBuisnessLogic buisnessLogic = new BuisnessLogic.BuisnessLogic();
@@ -198,6 +201,9 @@ namespace WPF.ViewModel
             }
         }
 
+        /// <summary>
+        /// Метод удаления записи клиента
+        /// </summary>
         private void Delete()
         {
             IBuisnessLogic buisnessLogic = new BuisnessLogic.BuisnessLogic();
@@ -211,6 +217,9 @@ namespace WPF.ViewModel
             Container.ClientList = Container.GetClient();
         }
 
+        /// <summary>
+        /// Метод обновления записи клиента
+        /// </summary>
         private void Undo()
         {
             if (operationType == OperationType.Update)

@@ -1,14 +1,10 @@
 ﻿using BuisnessLogic;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 using WPF.Common;
 using WPF.Interface;
 using WPF.View.DialogWindow;
+
 namespace WPF.ViewModel
 {
     public class ViewModel : ViewModelBase
@@ -23,18 +19,9 @@ namespace WPF.ViewModel
         private ViewModel()
         {
             ClientList = GetClient();
-            //Orders = GetOrder();
+           
         }
-        //protected ObservableCollection<OrderViewModel> _order;
-        //public ObservableCollection<OrderViewModel> Orders
-        //{
-        //    get { return GetOrder(); }
-        //    set
-        //    {
-        //        _order = value;
-        //        OnPropertyChanged("Orders");
-        //    }
-        //}
+       
         private ClientViewModel _selectedClient;
         public ClientViewModel SelectedClient
         {
@@ -59,6 +46,9 @@ namespace WPF.ViewModel
                 return _showAddCommand;
             }
         }
+        /// <summary>
+        /// Метод показа диалогового окна
+        /// </summary>
         private void ShowAddDialog()
         {
             ClientViewModel client = new ClientViewModel();
@@ -68,6 +58,7 @@ namespace WPF.ViewModel
             dialog.ShowDialog();
         }
         #endregion
+
         #region Список клиентов
         private ObservableCollection<ClientViewModel> _clientList;
         public ObservableCollection<ClientViewModel> ClientList
@@ -79,6 +70,10 @@ namespace WPF.ViewModel
                 OnPropertyChanged("ClientList");
             }
         }
+        /// <summary>
+        /// Метод получения списка клиентов
+        /// </summary>
+        /// <returns></returns>
         internal ObservableCollection<ClientViewModel> GetClient()
         {
             if (_clientList == null)
@@ -92,19 +87,7 @@ namespace WPF.ViewModel
             }
             return _clientList;
         }
-        //public ObservableCollection<OrderViewModel> GetOrder()
-        //{
-        //    _order = new ObservableCollection<OrderViewModel>();
-        //    IBuisnessLogic buisnessLogic = new BuisnessLogic.BuisnessLogic();
-        //    foreach (var i in buisnessLogic.GetOrderByClientId(SelectedClient.ClientId))
-        //    //foreach (var i in buisnessLogic.GetOrderByClientId(ClientId))
-        //    {
-        //        OrderViewModel order = new OrderViewModel(i);
-        //        order.Clients = SelectedClient;
-        //        _order.Add(order);
-        //    }
-        //    return _order;
-        //}
+       
         #endregion
     }
 }
