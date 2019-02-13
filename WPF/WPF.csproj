@@ -140,6 +140,7 @@
     </ApplicationDefinition>
     <Compile Include="ViewModel\ClientVM\ClientCommand.cs" />
     <Compile Include="ViewModel\ClientVM\ClientViewModel.cs" />
+    <Compile Include="ViewModel\OperationType.cs" />
     <Compile Include="ViewModel\OrderVM\OrderCommand.cs" />
     <Compile Include="ViewModel\OrderVM\OrderViewModel.cs" />
     <Compile Include="ViewModel\ViewModel.cs" />
@@ -165,7 +166,6 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Common\CommandBase.cs" />
-    <Compile Include="Common\OperationType.cs" />
     <Compile Include="Common\ViewModelBase.cs" />
     <Compile Include="Interface\IModalDialog.cs" />
     <Compile Include="Interface\IServiceLocator.cs" />

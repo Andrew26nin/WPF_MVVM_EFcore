@@ -12,7 +12,11 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using WPF.Common;
 using WPF.View.DialogWindow;
+using WPF.ViewModel;
+
+
 
 namespace WPF.View
 {
@@ -29,9 +33,9 @@ namespace WPF.View
         private void btnAddOrder_Click(object sender, RoutedEventArgs e)
         {
             OrderDialog view = new OrderDialog();
-            OrderCommand order = new OrderCommand();
+            OrderViewModel order = new OrderViewModel();
 
-            order.Clients = (ClientCommand)DataContext;
+            order.Clients = (ClientViewModel)DataContext;
             order.operationType = OperationType.Insert;
             view.DataContext = order;
             view.ShowDialog();
@@ -40,7 +44,7 @@ namespace WPF.View
         private void btnEditOrder_Click(object sender, RoutedEventArgs e)
         {
             OrderDialog view = new OrderDialog();
-            OrderCommand order = (OrderCommand)((Button)sender).DataContext;
+            OrderViewModel order = (OrderViewModel)((Button)sender).DataContext;
             order.operationType = OperationType.Update;
             view.DataContext = order;
             view.ShowDialog();

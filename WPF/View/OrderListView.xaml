@@ -27,11 +27,11 @@
                 </Style>
             </Button.Style>
         </Button>
-        <ListView HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Streets}">
+        <ListView HorizontalAlignment="Stretch" HorizontalContentAlignment="Stretch" ItemsSource="{Binding Orders}">
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="№" DisplayMemberBinding="{Binding Path=Number}" Width="50"/>
-                    <GridViewColumn Header="Описание заказ" DisplayMemberBinding="{Binding Path=Name}" Width="150"/>
+                    <GridViewColumn Header="Описание заказ" DisplayMemberBinding="{Binding Path=Description}" Width="150"/>
                     <GridViewColumn CellTemplate="{StaticResource RowButtons}"/>
                 </GridView>
             </ListView.View>

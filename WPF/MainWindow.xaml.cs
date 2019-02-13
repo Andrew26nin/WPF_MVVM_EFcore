@@ -23,6 +23,7 @@ namespace WPF
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = ViewModel.ViewModel.Instance();
         }
     }
 }

@@ -25,28 +25,9 @@
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
                 <RowDefinition Height="1*" />
-                <RowDefinition Height="1*" />
+                <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
-            <Label Margin="10" Grid.Row="0" Grid.ColumnSpan="2" FontWeight="Bold" Foreground="Blue" FontSize="15">
-                <Label.Style>
-                    <Style TargetType="{x:Type Label}">
-                        <Style.Triggers>
-                            <DataTrigger Binding="{Binding OperationType}">
-                                <DataTrigger.Value>
-                                    <vm:OperationType>Insert</vm:OperationType>
-                                </DataTrigger.Value>
-                                <Setter Property="Content" Value="Добавить клиента"/>
-                            </DataTrigger>
-                            <DataTrigger Binding="{Binding OperationType}">
-                                <DataTrigger.Value>
-                                    <vm:OperationType>Update</vm:OperationType>
-                                </DataTrigger.Value>
-                                <Setter Property="Content" Value="Редактировать клиента"/>
-                            </DataTrigger>
-                        </Style.Triggers>
-                    </Style>
-                </Label.Style>
-            </Label>
+            
             <Label  Name="lbltName" Content="ФИО клиента" Margin="10,10" HorizontalContentAlignment="Center" Grid.Row="1" />
             <Label Content="Адрес" Grid.Row="2" Margin="10,10" HorizontalContentAlignment="Center"/>
             <Label Content="VIP Клиент" Grid.Row="3" Margin="10,10" HorizontalContentAlignment="Center" />
@@ -60,8 +41,8 @@
             <CheckBox Name="CheckBoxIsVIP" IsChecked="{Binding IsVIP}" Grid.Column="1" Grid.Row="3" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
             <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" Margin="10" Orientation="Horizontal">
-                <Button x:Name="btnUpdate" Command="{Binding UpdateCommand}" HorizontalAlignment="Stretch" Margin="10,0" Click="btnUpdate_Click">
-                    <Button.Style>
+                <Button x:Name="btnUpdate" Content="Сохранить" Command="{Binding UpdateCommand}" HorizontalAlignment="Stretch" Margin="10,0" Click="btnUpdate_Click">
+                    <!--<Button.Style>
                         <Style TargetType="{x:Type Button}">
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding OperationType}">
@@ -78,7 +59,7 @@
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
-                    </Button.Style>
+                    </Button.Style>-->
                 </Button>
                 <Button x:Name="btnCancel" Content="Отмена" Command="{Binding CancelCommand}"  Padding="10"  Click="btnCancel_Click" />
             </StackPanel>

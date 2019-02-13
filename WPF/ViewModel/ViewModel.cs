@@ -9,7 +9,7 @@ using System.Windows.Input;
 using WPF.Common;
 using WPF.Interface;
 using WPF.View.DialogWindow;
-using WPF.ViewModel.ClientVM;
+
 
 namespace WPF.ViewModel
 {
@@ -29,23 +29,34 @@ namespace WPF.ViewModel
         private ViewModel()
         {
             ClientList = GetClient();
+            //Orders = GetOrder();
 
 
         }
+        //protected ObservableCollection<OrderViewModel> _order;
+        //public ObservableCollection<OrderViewModel> Orders
+        //{
+        //    get { return GetOrder(); }
+        //    set
+        //    {
+        //        _order = value;
+        //        OnPropertyChanged("Orders");
+        //    }
+        //}
 
-
-
-        private ClientCommand _selectedClient;
+        private ClientViewModel _selectedClient;
         public ClientViewModel SelectedClient
         {
             get => _selectedClient;
             set
             {
-                _selectedClient = (ClientCommand)value;
-                OnPropertyChanged("SelectedCity");
+                _selectedClient = value;
+                OnPropertyChanged("SelectedClient");
             }
         }
 
+
+        
 
 
         #region ShowAddCommand
@@ -65,7 +76,7 @@ namespace WPF.ViewModel
 
         private void ShowAddDialog()
         {
-            ClientCommand client = new ClientCommand();
+            ClientViewModel client = new ClientViewModel();
             client.operationType = OperationType.Insert;
 
             IModalDialog dialog = new ClientViewDialog();
@@ -108,6 +119,23 @@ namespace WPF.ViewModel
             }
             return _clientList;
         }
+
+
+
+        //public ObservableCollection<OrderViewModel> GetOrder()
+        //{
+        //    _order = new ObservableCollection<OrderViewModel>();
+        //    IBuisnessLogic buisnessLogic = new BuisnessLogic.BuisnessLogic();
+        //    foreach (var i in buisnessLogic.GetOrderByClientId(SelectedClient.ClientId))
+        //    //foreach (var i in buisnessLogic.GetOrderByClientId(ClientId))
+        //    {
+        //        OrderViewModel order = new OrderViewModel(i);
+        //        order.Clients = SelectedClient;
+        //        _order.Add(order);
+        //    }
+        //    return _order;
+
+        //}
         #endregion
 
     }

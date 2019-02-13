@@ -5,8 +5,25 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF"
         mc:Ignorable="d"
+       xmlns:view="clr-namespace:WPF.View"
+        xmlns:vm="clr-namespace:WPF.ViewModel"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
-    </Grid>
+
+    <Window.Resources>
+        <DataTemplate x:Key="ClientListTemplate" >
+            <view:ClientListView/>
+        </DataTemplate>
+        <DataTemplate x:Key="OrderListTemplate" >
+            <view:OrderListView/>
+        </DataTemplate>
+    </Window.Resources>
+    <DockPanel LastChildFill="True">
+
+        <ContentControl Content="{Binding}" ContentTemplate="{StaticResource ClientListTemplate}" DockPanel.Dock="Left" />
+
+        <ContentControl Content="{Binding SelectedClient}" ContentTemplate="{StaticResource OrderListTemplate}" DockPanel.Dock="Right" />
+
+
+
+    </DockPanel>
 </Window>
