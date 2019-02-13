@@ -1,6 +1,7 @@
-﻿using Data.DataRepository;
-using Data.DataRepository.Interface;
-using Data.Model;
+﻿
+using DataPostgres;
+using DataPostgres.DataRepository;
+using DataPostgres.DataRepository.Interface;
 using System;
 using System.Collections.Generic;
 using System.Linq;

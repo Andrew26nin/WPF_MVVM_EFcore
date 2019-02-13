@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28307.329
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Data", "Data\Data.csproj", "{36F6DAF4-EEE8-43C5-B5B3-073530809F18}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuisnessLogic", "BuisnessLogic\BuisnessLogic.csproj", "{AC3C3C7A-63B0-453A-9258-FA3330C0FC04}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF", "WPF\WPF.csproj", "{05CF8CB6-1B6C-40C0-91AA-CBC4ED014853}"
@@ -17,10 +15,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{36F6DAF4-EEE8-43C5-B5B3-073530809F18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{36F6DAF4-EEE8-43C5-B5B3-073530809F18}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{36F6DAF4-EEE8-43C5-B5B3-073530809F18}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{36F6DAF4-EEE8-43C5-B5B3-073530809F18}.Release|Any CPU.Build.0 = Release|Any CPU
 		{AC3C3C7A-63B0-453A-9258-FA3330C0FC04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{AC3C3C7A-63B0-453A-9258-FA3330C0FC04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AC3C3C7A-63B0-453A-9258-FA3330C0FC04}.Release|Any CPU.ActiveCfg = Release|Any CPU

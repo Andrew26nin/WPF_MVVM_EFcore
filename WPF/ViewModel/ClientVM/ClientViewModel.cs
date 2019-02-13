@@ -1,4 +1,4 @@
-﻿using Data.Model;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -11,6 +11,7 @@ using WPF.Common;
 using BuisnessLogic;
 using WPF.Interface;
 using WPF.View.DialogWindow;
+using DataPostgres;
 
 namespace WPF.ViewModel
 {
