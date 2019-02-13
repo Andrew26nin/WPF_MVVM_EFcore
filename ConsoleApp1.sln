@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BuisnessLogic", "BuisnessLo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF", "WPF\WPF.csproj", "{05CF8CB6-1B6C-40C0-91AA-CBC4ED014853}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataPostgres", "DataPostgres\DataPostgres.csproj", "{495DF7E1-CAE3-4034-B163-5F9DCCE8B07F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{05CF8CB6-1B6C-40C0-91AA-CBC4ED014853}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{05CF8CB6-1B6C-40C0-91AA-CBC4ED014853}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{05CF8CB6-1B6C-40C0-91AA-CBC4ED014853}.Release|Any CPU.Build.0 = Release|Any CPU
+		{495DF7E1-CAE3-4034-B163-5F9DCCE8B07F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{495DF7E1-CAE3-4034-B163-5F9DCCE8B07F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{495DF7E1-CAE3-4034-B163-5F9DCCE8B07F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{495DF7E1-CAE3-4034-B163-5F9DCCE8B07F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
