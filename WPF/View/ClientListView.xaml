@@ -11,24 +11,29 @@
     <UserControl.Resources>
         <DataTemplate x:Key="RowButtons">
             <StackPanel Orientation="Horizontal">
-                <Button Content="Ред" Command="{Binding ShowEditCommand}"/>
-                <Button x:Name="btnDeleteCitiy" Content="Удал" Command="{Binding DeleteCommand}"/>
+                <Button Content="Ред"  Command="{Binding ShowEditCommand}"  Margin="10,0">
+              
+                    
+                   
+                </Button>
+                <Button x:Name="btnDelete" Content="Удал" Margin="10,0" Command="{Binding DeleteCommand}"/>
             </StackPanel>
         </DataTemplate>
 
         <Style TargetType="GridViewColumnHeader">
             <Setter Property="FontSize" Value="14" />
         </Style>
-        <Style TargetType="ListViewItem">
-            <Setter Property="FontSize" Value="14" />
+        <Style TargetType="ListView">
+            <Setter Property="FontSize" Value="16" />
         </Style>
 
     </UserControl.Resources>
-    <StackPanel>
+    <StackPanel Margin="10">
+        <Label HorizontalAlignment="Left" FontSize="18" Margin="5">Клиенты</Label>
         <Button x:Name="btnAddClient" Content="Добавить клиента" Width="auto" Padding="10" HorizontalAlignment="Right" Margin="10 10 0 10" Command="{Binding ShowAddCommand}"/>
         <ListView x:Name="lsvClientList" HorizontalAlignment="Stretch" ItemsSource="{Binding ClientList}" SelectedItem="{Binding SelectedClient}">
             <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
+                <Style TargetType="ListViewItem" >
                     <Style.Triggers>
                         <DataTrigger Binding="{Binding IsVIP}" Value="True">
                             <Setter Property="Background" Value="BlanchedAlmond"/>

@@ -29,8 +29,6 @@ namespace DataPostgres.DataRepository
             }
             return list;
         }
-
-
         public virtual IList<T> GetList(Func<T, bool> where,
              params Expression<Func<T, object>>[] navigationProperties)
         {
@@ -50,8 +48,6 @@ namespace DataPostgres.DataRepository
             }
             return list;
         }
-
-
         public virtual T Get(Func<T, bool> where,
              params Expression<Func<T, object>>[] navigationProperties)
         {
@@ -59,19 +55,15 @@ namespace DataPostgres.DataRepository
             using (var context = new ContextPostgres())
             {
                 IQueryable<T> dbQuery = context.Set<T>();
-
                 //Apply eager loading
                 foreach (Expression<Func<T, object>> navigationProperty in navigationProperties)
                     dbQuery = dbQuery.Include<T, object>(navigationProperty);
-
                 item = dbQuery
                     .AsNoTracking() //Don't track any changes for the selected item
                     .FirstOrDefault(where); //Apply where clause
             }
             return item;
         }
-
-
         public virtual void InsertMany(params T[] items)
         {
             using (var context = new ContextPostgres())
@@ -83,12 +75,6 @@ namespace DataPostgres.DataRepository
                 context.SaveChanges();
             }
         }
-
-
-
-
-
-
         public virtual void Update(params T[] items)
         {
             using (var context = new ContextPostgres())
@@ -100,9 +86,6 @@ namespace DataPostgres.DataRepository
                 context.SaveChanges();
             }
         }
-
-
-
 
 
 

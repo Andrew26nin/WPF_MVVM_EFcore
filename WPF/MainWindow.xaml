@@ -7,7 +7,7 @@
         mc:Ignorable="d"
        xmlns:view="clr-namespace:WPF.View"
         xmlns:vm="clr-namespace:WPF.ViewModel"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Клиент-Заказ" Height="450" Width="800">
 
     <Window.Resources>
         <DataTemplate x:Key="ClientListTemplate" >

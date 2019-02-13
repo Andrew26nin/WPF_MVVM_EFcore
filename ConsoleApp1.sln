@@ -9,6 +9,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WPF", "WPF\WPF.csproj", "{0
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataPostgres", "DataPostgres\DataPostgres.csproj", "{495DF7E1-CAE3-4034-B163-5F9DCCE8B07F}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{1516DBD4-78DD-4BEF-9FE9-A5FC0B1D3297}"
+	ProjectSection(SolutionItems) = preProject
+		WPF\iconDelete.png = WPF\iconDelete.png
+		WPF\iconEdit.png = WPF\iconEdit.png
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

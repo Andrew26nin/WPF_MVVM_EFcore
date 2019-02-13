@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         
         xmlns:vm="clr-namespace:WPF.ViewModel"
-        Title="Заказ" Height="300" Width="400">
+        Title="Заказ" Height="273.259" Width="402.507">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -17,74 +17,42 @@
     </Window.Resources>
 
     <StackPanel>
-        <!--<Label x:Name="lblTitle" Margin="10 10 0 0"  FontWeight="Bold" Foreground="Blue" FontSize="15">
-            <Label.Style>
-                <Style TargetType="{x:Type Label}">
-                    <Style.Triggers>
-                        <DataTrigger Binding="{Binding OperationType}">
-                            <DataTrigger.Value>
-                                <vm:OperationType>Insert</vm:OperationType>
-                            </DataTrigger.Value>
-                            <Setter Property="Content" Value="Добавить заказ"/>
-                        </DataTrigger>
-                        <DataTrigger Binding="{Binding OperationType}">
-                            <DataTrigger.Value>
-                                <vm:OperationType>Update</vm:OperationType>
-                            </DataTrigger.Value>
-                            <Setter Property="Content" Value="Обновить заказ"/>
-                        </DataTrigger>
-                    </Style.Triggers>
-                </Style>
-            </Label.Style>
-        </Label>-->
-       
-            <Grid Height="110" >
-                <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="1*" />
-                    <ColumnDefinition Width="2*" />
-                </Grid.ColumnDefinitions>
-                <Grid.RowDefinitions>
-                    <RowDefinition Height="*" />
-                    <RowDefinition Height="*" />
-                    
-                </Grid.RowDefinitions>
-                <Label Content="Описание заказа" Name="lblDescription" Margin="10" />
+        <Grid Height="243"   >
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="23*" />
+                <RowDefinition Height="13*" />
+                <RowDefinition Height="16*" />
+            </Grid.RowDefinitions>
+            <Label Content="Описание заказа" Name="lblDescription" Margin="10" Grid.Row="0"/>
 
-                <TextBox Name="txtOrderDescription" Grid.Column="1" Grid.Row="0" Margin="10" HorizontalContentAlignment="Stretch" Style="{StaticResource valStyle}" Text="{Binding Path=Description, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" />
+            <TextBox Name="txtOrderDescription" Grid.Column="1" Grid.Row="0" Margin="10" HorizontalContentAlignment="Stretch" Style="{StaticResource valStyle}" Text="{Binding Path=Description, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" />
 
-                <StackPanel Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="1" Margin="10" Orientation="Horizontal">
-                    <Button Name="btnUpdate" Margin="10 0" HorizontalAlignment="Left" Content="Сохранить" Width="100" Command="{Binding UpdateCommand}" Click="btnUpdate_Click">
+            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" Grid.Row="1" Margin="76,10" Orientation="Horizontal" Width="240">
+                <Button  Name="btnUpdate" Margin="10 0" HorizontalAlignment="Left" Content="Сохранить" Width="100" Command="{Binding UpdateCommand}" Click="btnUpdate_Click">
 
-                        <Button.Style>
-                            <Style TargetType="{x:Type Button}">
-                                <Setter Property="IsEnabled" Value="False"/>
-                                <Style.Triggers>
-                                    <!--<DataTrigger Binding="{Binding OperationType}">
-                                        <DataTrigger.Value>
-                                            <vm:OperationType>Insert</vm:OperationType>
-                                        </DataTrigger.Value>
-                                        <Setter Property="Content" Value="Добавить"/>
-                                    </DataTrigger>
-                                    <DataTrigger Binding="{Binding OperationType}">
-                                        <DataTrigger.Value>
-                                            <vm:OperationType>Update</vm:OperationType>
-                                        </DataTrigger.Value>
-                                        <Setter Property="Content" Value="Обновить"/>
-                                    </DataTrigger>-->
-                                    <MultiDataTrigger>
-                                        <MultiDataTrigger.Conditions>
-                                            <Condition Binding="{Binding ElementName=txtOrderDescription, Path=(Validation.HasError)}" Value="false"/>
-                                        </MultiDataTrigger.Conditions>
-                                        <Setter Property="IsEnabled" Value="True"/>
-                                    </MultiDataTrigger>
-                                </Style.Triggers>
-                            </Style>
-                        </Button.Style>
-                    </Button>
-                    <Button x:Name="btnCancel"  Content="Отмена" Margin="10 0" Padding="10" Width="100" Command="{Binding CancelCommand}" Click="btnCancel_Click" />
-                </StackPanel>
-            </Grid>
-       
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="IsEnabled" Value="False"/>
+                            <Style.Triggers>
+
+                                <MultiDataTrigger>
+                                    <MultiDataTrigger.Conditions>
+                                        <Condition Binding="{Binding ElementName=txtOrderDescription, Path=(Validation.HasError)}" Value="false"/>
+                                    </MultiDataTrigger.Conditions>
+                                    <Setter Property="IsEnabled" Value="True"/>
+                                </MultiDataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+                <Button x:Name="btnCancel"  Content="Отмена" Margin="10 0" Padding="10" Width="100" Command="{Binding CancelCommand}" Click="btnCancel_Click" />
+            </StackPanel>
+        </Grid>
+
     </StackPanel>
 </Window>
 

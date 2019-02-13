@@ -1,5 +1,4 @@
-﻿
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -22,21 +21,13 @@ namespace WPF.ViewModel
         private string _address;
         private bool _isVIP;
         protected ObservableCollection<OrderViewModel> _order;
-        #endregion
-
-        //private ICommand _showEditCommand;
-        //private ICommand _updateCommand;
-        //private ICommand _deleteCommand;
-        //private ICommand _cancelCommand;
-
         protected ClientViewModel _originalValue;
-
+        #endregion
 
 
         #region Свойства
 
         public int ClientId { get; set; }
-
         public string Name
         {
             get { return _name; }
@@ -46,8 +37,6 @@ namespace WPF.ViewModel
                 OnPropertyChanged("Name");
             }
         }
-
-
         public string Address
         {
             get { return _address; }
@@ -57,8 +46,6 @@ namespace WPF.ViewModel
                 OnPropertyChanged("Address");
             }
         }
-
-
         public bool IsVIP
         {
             get { return _isVIP; }
@@ -68,7 +55,6 @@ namespace WPF.ViewModel
                 OnPropertyChanged("IsVIP");
             }
         }
-
         public ObservableCollection<OrderViewModel> Orders
         {
             get { return GetOrder(); }
@@ -79,26 +65,19 @@ namespace WPF.ViewModel
             }
         }
 
-
-        //private ClientViewModel _selectedClient;
-        //public ClientViewModel SelectedClient
-        //{
-        //    get => _selectedClient;
-        //    set
-        //    {
-        //        _selectedClient = value;
-        //        OnPropertyChanged("SelectedClient");
-        //    }
-        //}
-
         #endregion
+
+        internal ClientViewModel() { }
+        public ViewModel Container
+        {
+            get { return ViewModel.Instance(); }
+        }
 
 
         public ObservableCollection<OrderViewModel> GetOrder()
         {
             _order = new ObservableCollection<OrderViewModel>();
-            IBuisnessLogic buisnessLogic = new BuisnessLogic.BuisnessLogic();
-            //foreach (var i in buisnessLogic.GetOrderByClientId(SelectedClient.ClientId))
+            IBuisnessLogic buisnessLogic = new BuisnessLogic.BuisnessLogic();           
             foreach (var i in buisnessLogic.GetOrderByClientId(ClientId))
             {
                 OrderViewModel order = new OrderViewModel(i);
@@ -106,21 +85,9 @@ namespace WPF.ViewModel
                 _order.Add(order);
             }
             return _order;
-
         }
-
-
-
-
-
-        internal ClientViewModel() { }
-
-        public ViewModel Container
-        {
-            get { return ViewModel.Instance(); }
-        }
-
-
+        
+        
 
 
         public ClientViewModel(Client c)
@@ -129,156 +96,20 @@ namespace WPF.ViewModel
             Name = c.Name;
             Address = c.Address;
             IsVIP = c.IsVIP;
-
             _originalValue = (ClientViewModel)MemberwiseClone();
         }
-
-
-
-        //#region Опреление команд
-
-        //internal ObservableCollection<OrderViewModel> GetOrder()
-        //{
-        //    _order = new ObservableCollection<OrderViewModel>();
-        //    IBuisnessLogic buisnessLogic = new BuisnessLogic.BuisnessLogic();
-
-        //    foreach (var i in buisnessLogic.GetOrderByClientId(ClientId))
-        //    {
-        //        OrderViewModel order = new OrderViewModel(i);
-        //        order.Clients = this;
-        //        _order.Add(order);
-        //    }
-        //    return _order;
-
-        //}
-
-
-
-        ///// <summary>
-        ///// Показать Диалоговое окно
-        ///// </summary>
-        //private void ShowEditDialog()
-        //{
-        //    operationType = OperationType.Update;
-        //    IModalDialog dialog = new ClientViewDialog();
-        //    dialog.BindViewModel(this);
-        //    dialog.ShowDialog();
-        //}
-
-
-
-
-
-
-        //private void Update()
-        //{
-        //    IBuisnessLogic buisnessLogic = new BuisnessLogic.BuisnessLogic();
-        //    if (operationType == OperationType.Insert)
-        //    {
-        //        buisnessLogic.AddClient(new Client
-        //        {
-        //            Id = ClientId,
-        //            Name = Name,
-        //            Address = Address,
-        //            IsVIP = IsVIP
-        //        });
-        //        Container.ClientList = Container.GetClient();
-        //    }
-        //    else if (operationType == OperationType.Update)
-        //    {
-        //        buisnessLogic.UpdateClient(new Client
-        //        {
-        //            Id = ClientId,
-        //            Name = Name,
-        //            Address = Address,
-        //            IsVIP = IsVIP
-        //        });
-        //        _originalValue = (ClientViewModel)MemberwiseClone();
-        //    }
-        //}
-
-
-
-
-        //private void Delete()
-        //{
-        //    IBuisnessLogic buisnessLogic = new BuisnessLogic.BuisnessLogic();
-        //    buisnessLogic.RemoveClient(new Client
-        //    {
-        //        Id = ClientId,
-        //        Name = Name,
-        //        Address = Address,
-        //        IsVIP = IsVIP
-        //    });
-        //    Container.ClientList = Container.GetClient();
-        //}
-
-
-
-
-
-        //private void Undo()
-        //{
-        //    if (operationType == OperationType.Update)
-        //    {
-        //        Name = _originalValue.Name;
-        //        Address = _originalValue.Address;
-        //        IsVIP = _originalValue.IsVIP;
-        //    }
-        //}
-
-
-
-        //#endregion
-
-
-
-
-
-
-
-
-        //#region IDataErrorInfo Members
-
-        //string IDataErrorInfo.this[string columnName]
-        //{
-        //    get
-        //    {
-        //        if (columnName == "Name")
-        //        {
-        //            if (Name == null)
-        //                return "Пожалуйста введите данные клиента";
-        //            if (Name.Trim() == string.Empty)
-        //                return "Требуется запись ФИО";
-        //        }
-        //        if (columnName == "Address")
-        //        {
-        //            if (Name == null)
-        //                return "Пожалуйста введите адрес";
-        //            if (Name.Trim() == string.Empty)
-        //                return "Требуется указать Адрес";
-        //        }
-        //        return null;
-        //    }
-        //}
-
-        //string IDataErrorInfo.Error
-        //{
-        //    get { return string.Empty; }
-        //}
-
-        //#endregion
+        
 
 
         private ICommand _showEditCommand;
         private ICommand _updateCommand;
         private ICommand _deleteCommand;
         private ICommand _cancelCommand;
-
         public OperationType operationType { get; set; }
 
 
         #region ICommand
+
         public ICommand ShowEditCommand
         {
             get
@@ -290,9 +121,6 @@ namespace WPF.ViewModel
                 return _showEditCommand;
             }
         }
-
-
-
 
         public ICommand UpdateCommand
         {
@@ -306,11 +134,6 @@ namespace WPF.ViewModel
             }
         }
 
-
-
-
-
-
         public ICommand DeleteCommand
         {
             get
@@ -323,10 +146,6 @@ namespace WPF.ViewModel
             }
         }
 
-
-
-
-
         public ICommand CancelCommand
         {
             get
@@ -338,16 +157,9 @@ namespace WPF.ViewModel
                 return _cancelCommand;
             }
         }
-
         #endregion
 
-
         #region Опреление команд
-
-
-
-
-
         /// <summary>
         /// Показать Диалоговое окно
         /// </summary>
@@ -358,11 +170,6 @@ namespace WPF.ViewModel
             dialog.BindViewModel(this);
             dialog.ShowDialog();
         }
-
-
-
-
-
 
         private void Update()
         {
@@ -391,9 +198,6 @@ namespace WPF.ViewModel
             }
         }
 
-
-
-
         private void Delete()
         {
             IBuisnessLogic buisnessLogic = new BuisnessLogic.BuisnessLogic();
@@ -407,10 +211,6 @@ namespace WPF.ViewModel
             Container.ClientList = Container.GetClient();
         }
 
-
-
-
-
         private void Undo()
         {
             if (operationType == OperationType.Update)
@@ -420,14 +220,14 @@ namespace WPF.ViewModel
                 IsVIP = _originalValue.IsVIP;
             }
         }
-
-
-
         #endregion
 
-
         #region IDataErrorInfo Members
-
+        /// <summary>
+        /// Реализация простой валидации
+        /// </summary>
+        /// <param name="columnName">Указать по имени на элемент ввода</param>
+        /// <returns>Строчка валидации</returns>
         string IDataErrorInfo.this[string columnName]
         {
             get
@@ -449,14 +249,10 @@ namespace WPF.ViewModel
                 return null;
             }
         }
-
         string IDataErrorInfo.Error
         {
             get { return string.Empty; }
         }
-
         #endregion
-
     }
-
 }

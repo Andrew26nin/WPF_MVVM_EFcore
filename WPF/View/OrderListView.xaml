@@ -9,13 +9,21 @@
     <UserControl.Resources>
         <DataTemplate x:Key="RowButtons">
             <StackPanel Orientation="Horizontal">
-                <Button x:Name="btnEditOrder" Content="Ред" Click="btnEditOrder_Click" />
-                <Button x:Name="btnDeleteOrder" Content="Удал" Command="{Binding DeleteCommand}" />
+                <Button x:Name="btnEditOrder" Content="Ред" Margin="10,0" Click="btnEditOrder_Click" />
+                <Button x:Name="btnDeleteOrder" Content="Удал" Margin="10,0" Command="{Binding DeleteCommand}" />
             </StackPanel>
         </DataTemplate>
+        <Style TargetType="GridViewColumnHeader">
+            <Setter Property="FontSize" Value="14" />
+        </Style>
+        <Style TargetType="ListView">
+            <Setter Property="FontSize" Value="16" />
+        </Style>
+        
     </UserControl.Resources>
 
-    <StackPanel>
+    <StackPanel Margin="10">
+        <Label HorizontalAlignment="Left" FontSize="18" Margin="5">Заказы</Label>
         <Button x:Name="btnAddOrder" Content="Добавить заказ" Padding="10" HorizontalAlignment="Right" Margin="10 10 0 10" Click="btnAddOrder_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">

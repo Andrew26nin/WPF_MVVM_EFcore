@@ -8,21 +8,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 using WPF.Common;
-
 namespace WPF.ViewModel
 {
     public class OrderViewModel : ViewModelBase, IDataErrorInfo
     {
         protected OrderViewModel _originalValue;
+
+        #region Поля
         private int _number;
         private string _description;
+        #endregion
 
-        //private ICommand _updateCommand;
-        //private ICommand _deleteCommand;
-        //private ICommand _cancelCommand;
-
-        //private OrderViewModel _originalValue;
-
+        public OperationType operationType { get; set; }
         public ClientViewModel Clients { get; set; }
 
         #region Свойства
@@ -35,7 +32,6 @@ namespace WPF.ViewModel
                 OnPropertyChanged("Number");
             }
         }
-
         public string Description
         {
             get { return _description; }
@@ -45,11 +41,7 @@ namespace WPF.ViewModel
                 OnPropertyChanged("Description");
             }
         }
-
         #endregion
-
-
-
 
         internal OrderViewModel(Order order)
         {
@@ -57,21 +49,16 @@ namespace WPF.ViewModel
             Description = order.Description;
             _originalValue = (OrderViewModel)MemberwiseClone();
         }
-
         internal OrderViewModel() { }
 
 
-
-
-        private ICommand _updateCommand;
-        private ICommand _deleteCommand;
-        private ICommand _cancelCommand;
-
-
+        
+        
+        
 
         #region ICommand
-        public OperationType operationType { get; set; }
 
+        private ICommand _updateCommand;
         public ICommand UpdateCommand
         {
             get
@@ -84,6 +71,7 @@ namespace WPF.ViewModel
             }
         }
 
+        private ICommand _deleteCommand;
         public ICommand DeleteCommand
         {
             get
@@ -96,6 +84,7 @@ namespace WPF.ViewModel
             }
         }
 
+        private ICommand _cancelCommand;
         public ICommand CancelCommand
         {
             get
@@ -107,15 +96,12 @@ namespace WPF.ViewModel
                 return _cancelCommand;
             }
         }
-
         #endregion
 
         #region Команды
-
         private void Update()
         {
             IBuisnessLogic buisnessLogic = new BuisnessLogic.BuisnessLogic();
-
             if (operationType == OperationType.Insert)
             {
                 buisnessLogic.AddOrder(new Order
@@ -136,8 +122,6 @@ namespace WPF.ViewModel
                 _originalValue = (OrderViewModel)MemberwiseClone();
             }
         }
-
-
         private void Delete()
         {
             IBuisnessLogic buisnessLogic = new BuisnessLogic.BuisnessLogic();
@@ -149,7 +133,6 @@ namespace WPF.ViewModel
             });
             Clients.Orders = Clients.GetOrder();
         }
-
         private void Undo()
         {
             if (operationType == OperationType.Update)
@@ -157,12 +140,14 @@ namespace WPF.ViewModel
                 Description = _originalValue.Description;
             }
         }
-
         #endregion
 
-
         #region IDataErrorInfo Members
-
+        /// <summary>
+        /// Реализация простой валидации
+        /// </summary>
+        /// <param name="columnName">Указать по имени на элеиент ввода</param>
+        /// <returns>Строчка валидации</returns>
         string IDataErrorInfo.this[string columnName]
         {
             get
@@ -177,12 +162,10 @@ namespace WPF.ViewModel
                 return null;
             }
         }
-
         string IDataErrorInfo.Error
         {
             get { return string.Empty; }
         }
-
         #endregion
     }
 }
