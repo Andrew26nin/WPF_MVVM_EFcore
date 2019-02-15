@@ -4,3 +4,5 @@
 - Паттерн MVVM
 - Использование Entity Framework Core
 - PostgreSQL
+
+![alt text](База.png)
