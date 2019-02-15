@@ -7,7 +7,7 @@
         mc:Ignorable="d"
        xmlns:view="clr-namespace:WPF.View"
         xmlns:vm="clr-namespace:WPF.ViewModel"
-        Title="Клиент-Заказ" Height="450" Width="800">
+        Title="Клиент-Заказ" Height="450" Width="900">
 
     <Window.Resources>
         <DataTemplate x:Key="ClientListTemplate" >
@@ -19,7 +19,7 @@
     </Window.Resources>
     <DockPanel LastChildFill="True">
 
-        <ContentControl Content="{Binding}" ContentTemplate="{StaticResource ClientListTemplate}" DockPanel.Dock="Left" />
+        <ContentControl   Content="{Binding}" ContentTemplate="{StaticResource ClientListTemplate}" DockPanel.Dock="Left" />
 
         <ContentControl Content="{Binding SelectedClient}" ContentTemplate="{StaticResource OrderListTemplate}" DockPanel.Dock="Right" />
 

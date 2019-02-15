@@ -23,7 +23,7 @@
     </UserControl.Resources>
 
     <StackPanel Margin="10">
-        <Label HorizontalAlignment="Left" FontSize="18" Margin="5">Заказы</Label>
+        <Label HorizontalAlignment="Left" FontSize="24" Margin="5">Заказы</Label>
         <Button x:Name="btnAddOrder" Content="Добавить заказ" Padding="10" HorizontalAlignment="Right" Margin="10 10 0 10" Click="btnAddOrder_Click">
             <Button.Style>
                 <Style TargetType="{x:Type Button}">

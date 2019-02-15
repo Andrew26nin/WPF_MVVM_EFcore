@@ -232,9 +232,6 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="iconEdit.png" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\BuisnessLogic\BuisnessLogic.csproj">
       <Project>{ac3c3c7a-63b0-453a-9258-fa3330c0fc04}</Project>
       <Name>BuisnessLogic</Name>
@@ -243,6 +240,10 @@
       <Project>{495df7e1-cae3-4034-b163-5f9dcce8b07f}</Project>
       <Name>DataPostgres</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="iconDelete.png" />
+    <Resource Include="iconEdit.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

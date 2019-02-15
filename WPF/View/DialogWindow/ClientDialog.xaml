@@ -6,13 +6,23 @@
         xmlns:local="clr-namespace:WPF.View.DialogWindow"
         xmlns:vm="clr-namespace:WPF.ViewModel"
         mc:Ignorable="d"
-        Title="Клиент" Height="450" Width="800">
+        Title="Клиент" Height="450" Width="600">
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="..\..\View\ValidationStyle.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+            <Style TargetType="Label">
+                <Setter Property="FontSize" Value="16" />
+            </Style>
+            <Style TargetType="TextBox">
+                <Setter Property="FontSize" Value="14" />
+            </Style>
+            <Style TargetType="Button">
+                <Setter Property="FontSize" Value="16" />
+            </Style>
         </ResourceDictionary>
+        
     </Window.Resources>
     <StackPanel>
         <Grid>
@@ -33,17 +43,17 @@
             <Label Content="VIP Клиент" Grid.Row="3" Margin="10,10" HorizontalContentAlignment="Center" />
 
             <TextBox Name="txtName" Grid.Column="1" Text="{Binding Name, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" 
-                     Margin="10,10" HorizontalAlignment="Stretch" Grid.Row="1" Style="{StaticResource valStyle}"/>
+                     Margin="10,10,60,10" HorizontalAlignment="Stretch" Grid.Row="1" Style="{StaticResource valStyle}"/>
 
             <TextBox Name="txtAddress" Text="{Binding Address, ValidatesOnDataErrors=True, NotifyOnValidationError=True, UpdateSourceTrigger=PropertyChanged}" 
-                     Grid.Column="1" Grid.Row="2" Margin="10,10" HorizontalAlignment="Stretch" Style="{StaticResource valStyle}"/>
+                     Grid.Column="1" Grid.Row="2" Margin="10,10,60,10" HorizontalAlignment="Stretch" Style="{StaticResource valStyle}"/>
 
             <CheckBox Name="CheckBoxIsVIP" IsChecked="{Binding IsVIP}" Grid.Column="1" Grid.Row="3" Margin="10" VerticalAlignment="Center" HorizontalAlignment="Left"/>
 
-            <StackPanel Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" Margin="10" Orientation="Horizontal">
-                <Button FontSize="14" x:Name="btnUpdate" Content="Сохранить" Command="{Binding UpdateCommand}" HorizontalAlignment="Stretch" Margin="10,0" Click="btnUpdate_Click">
-                </Button>
-                <Button FontSize="14" x:Name="btnCancel" Content="Отмена" Command="{Binding CancelCommand}"  Padding="10"  Click="btnCancel_Click" />
+            <StackPanel  Grid.Column="0" Grid.ColumnSpan="2" Grid.Row="4" Margin="10" Orientation="Horizontal">
+                <Button  x:Name="btnUpdate" Content="Сохранить" Command="{Binding UpdateCommand}" HorizontalAlignment="Center" Margin="10,0" Click="btnUpdate_Click"/>
+
+                <Button  x:Name="btnCancel" Content="Отмена" Command="{Binding CancelCommand}"  Padding="15" Margin="30,0" Click="btnCancel_Click" />
             </StackPanel>
         </Grid>
     </StackPanel>

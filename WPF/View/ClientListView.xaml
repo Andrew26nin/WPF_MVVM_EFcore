@@ -12,9 +12,9 @@
         <DataTemplate x:Key="RowButtons">
             <StackPanel Orientation="Horizontal">
                 <Button Content="Ред"  Command="{Binding ShowEditCommand}"  Margin="10,0">
-              
                     
-                   
+
+
                 </Button>
                 <Button x:Name="btnDelete" Content="Удал" Margin="10,0" Command="{Binding DeleteCommand}"/>
             </StackPanel>
@@ -29,7 +29,7 @@
 
     </UserControl.Resources>
     <StackPanel Margin="10">
-        <Label HorizontalAlignment="Left" FontSize="18" Margin="5">Клиенты</Label>
+        <Label HorizontalAlignment="Left" FontSize="24" Margin="5">Клиенты</Label>
         <Button x:Name="btnAddClient" Content="Добавить клиента" Width="auto" Padding="10" HorizontalAlignment="Right" Margin="10 10 0 10" Command="{Binding ShowAddCommand}"/>
         <ListView x:Name="lsvClientList" HorizontalAlignment="Stretch" ItemsSource="{Binding ClientList}" SelectedItem="{Binding SelectedClient}">
             <ListView.ItemContainerStyle>
